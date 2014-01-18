@@ -4,13 +4,81 @@
 
 
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
-.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl { text-align: center; }
 .ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
 .ui-timepicker-div dl dd { margin: 0 10px 10px 45%; }
 .ui-timepicker-div td { font-size: 90%; }
 .ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
 
 .ui-timepicker-rtl{ direction: rtl; }
-.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
-.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl { text-align: center; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: center; clear: right; }
 .ui-timepicker-rtl dl dd { margin: 0 45% 10px 10px; }
+
+p {
+	text-align: center;
+	color: #6CBB3C;
+	font-size: 18px;
+	font-family: Tahoma;
+	font-weight: bold;
+	z-index: 3;
+	}
+
+h1 {
+	text-align: center;
+	color: #00868B;
+	font-size: 22px;
+	font-weight: bold;
+	font-family: chicago;
+	z-index: 5;
+	text-decoration: underline;
+}
+
+body {
+	background: url(http://empalalakids.com/sites/empalalakids.com/files/imagecache/product_full/products/Brighter%20Airplane%20Swatch.jpg)
+}
+
+div {
+	z-index: 10;
+	color: #151B54
+
+
+}
+
+inputs {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.form {
+	border:double;
+	border-width: 10px;
+	background: #348017;
+	
+}
+
+.btn {
+	font-family: Arial Black;
+	background-color: #6CBB3C;
+}
+
+.center1 {
+	position: relative;
+	margin-left: 300px;
+	padding-top: 20px;
+}
+
+.center2 {
+	position: relative;
+	margin-left: 255px;
+}
+a.selected {
+	bbackground-color:#1F75CC;
+	color:white;
+	z-index:100;
+}
+
+.messagepop {
+	background-color: #FFFFFF
+}
