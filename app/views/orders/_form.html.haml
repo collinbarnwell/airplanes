@@ -1,0 +1,11 @@
+.form.container
+  =semantic_form_for(@order) do |f|
+    =f.inputs :email
+    =f.inputs :max_price, label: 'Max Price ($):'
+
+    =f.text_field :departure_time_start, class: 'datepicker'
+    =f.text_field :departure_time_end, class: 'datepicker'
+    =f.text_field :return_time_start, class: 'datepicker'
+    =f.text_field :return_time_end, class: 'datepicker'
+
+    =f.submit
