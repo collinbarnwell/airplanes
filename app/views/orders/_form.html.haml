@@ -3,9 +3,12 @@
     =f.inputs :email
     =f.inputs :max_price, label: 'Max Price ($):'
 
-    =f.text_field :departure_time_start, class: 'datepicker'
-    =f.text_field :departure_time_end, class: 'datepicker'
-    =f.text_field :return_time_start, class: 'datepicker'
-    =f.text_field :return_time_end, class: 'datepicker'
+    =collection_select :order, :start_airport, @airports, :id, :collection_select_text
+    =f.text_field :departure_time_start, class: 'datetimepicker'
+    =f.text_field :departure_time_end, class: 'datetimepicker'
+
+    =collection_select :order, :end_airport, @airports, :id, :collection_select_text
+    =f.text_field :return_time_start, class: 'datetimepicker'
+    =f.text_field :return_time_end, class: 'datetimepicker'
 
     =f.submit

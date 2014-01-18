@@ -11,7 +11,9 @@
 
 class Order < ActiveRecord::Base
   has_and_belongs_to_many :bad_airlines
-  
+  belongs_to :start_airport, class_name: 'Airport'
+  belongs_to :end_airport, class_name: 'Airport'
+
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates_format_of :email, with: EmailRegex
@@ -19,4 +21,6 @@ class Order < ActiveRecord::Base
   # validates :departure_time, greater_than: Time.now
   # validates :return_time, greater_than: Time.now
   # validate that return is after departure
+  validates_presence_of :email, :max_price, :start_airport, :end_airport, 
+                        :departure_time_start, :departure_time_end
 end
