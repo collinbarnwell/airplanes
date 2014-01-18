@@ -1,14 +1,40 @@
 .form.container
-  =semantic_form_for(@order) do |f|
-    =f.inputs :email
-    =f.inputs :max_price, label: 'Max Price ($):'
+	=semantic_form_for(@order) do |f|
+		.center1=f.input :email
+		.center2=f.input :max_price, label: 'Max Price ($):'
+		%h1 DEPART
+		<p>
+		Please enter the city from which you wish to depart
+		</p>
 
-    =collection_select :order, :start_airport, @airports, :id, :collection_select_text
-    =f.text_field :departure_time_start, class: 'datetimepicker'
-    =f.text_field :departure_time_end, class: 'datetimepicker'
+		<p>
+		Please enter the range of dates in which you wish to depart
+		</p>
+		<p>
+	    =collection_select :order, :start_airport, @airports, :id, :collection_select_text
+	    =f.text_field :departure_time_start, class: 'datetimepicker'
+	    =f.text_field :departure_time_end, class: 'datetimepicker'
+		</p>
 
-    =collection_select :order, :end_airport, @airports, :id, :collection_select_text
-    =f.text_field :return_time_start, class: 'datetimepicker'
-    =f.text_field :return_time_end, class: 'datetimepicker'
+		<h1> RETURN </h1>
+		<p>
+		Please enter the city from which you wish to return
+		</p>
 
-    =f.submit
+		<p>
+		Please enter the range of dates in which you wish to return
+		</p>
+		<p>
+	    =collection_select :order, :end_airport, @airports, :id, :collection_select_text
+	    =f.text_field :return_time_start, class: 'datetimepicker'
+	    =f.text_field :return_time_end, class: 'datetimepicker'
+		</p>
+
+		<p>
+		=f.submit class: 'btn btn-large btn-primary'
+		</p>
+
+		<div>
+			<div class="messagepop pop"></div>
+			<a href="/contact" id"contact">Contact Us</a>
+		</div>
