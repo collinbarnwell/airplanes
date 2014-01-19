@@ -6,7 +6,11 @@ class OrdersController < ApplicationController
   end
 
   def create
+    start_date = DateTime.strptime(params[:order][:departure_time_start], '%m/%d/%Y')
+    end_date = DateTime.strptime(params[:order][:return_time_start], '%m/%d/%Y')
     @order = Order.new(order_params)
+    @order.return_time_start = end_date
+    @order.departure_time_start = start_date
     if @order.save
       redirect_to @order
     else
@@ -35,8 +39,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:email, :max_price, :return_time_start, :return_time_end, 
-                                  :departure_time_start, :departure_time_end, :start_airport_id,
-                                  :end_airport_id)
+    params.require(:order).permit(:email, :max_price, :start_airport,
+                                  :end_airport)
   end
 end

@@ -21,6 +21,7 @@ class Order < ActiveRecord::Base
   # validates :departure_time, greater_than: Time.now
   # validates :return_time, greater_than: Time.now
   # validate that return is after departure
+  # validate destinations can't be the same
   validates_presence_of :email, :max_price, :start_airport, :end_airport, 
                         :departure_time_start, :departure_time_end
 end
