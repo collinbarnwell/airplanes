@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118131632) do
+ActiveRecord::Schema.define(version: 20140118230846) do
 
   create_table "airports", force: true do |t|
     t.string   "abbreviation"
@@ -37,9 +37,7 @@ ActiveRecord::Schema.define(version: 20140118131632) do
     t.string   "email"
     t.float    "max_price"
     t.datetime "departure_time_start"
-    t.datetime "departure_time_end"
     t.datetime "return_time_start"
-    t.integer  "return_time_end"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "start_airport_id"
