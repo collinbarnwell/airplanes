@@ -4,7 +4,7 @@
 
 p {
 	text-align: center;
-	color: #6CBB3C;
+	color: #3EA055;
 	font-size: 18px;
 	font-family: Tahoma;
 	font-weight: bold;
@@ -13,7 +13,7 @@ p {
 
 h1 {
 	text-align: center;
-	color: #00868B;
+	color: #87AFC7;
 	font-size: 22px;
 	font-weight: bold;
 	font-family: chicago;
@@ -27,7 +27,7 @@ body {
 
 div {
 	z-index: 10;
-	color: #151B54
+	color: #87AFC7;
 
 
 }
@@ -40,8 +40,9 @@ inputs {
 
 .form {
 	border:double;
-	border-width: 10px;
-	background: #348017;
+	border-width: 15px;
+	background: url(http://www.chicshelfpaper.com/images/P/9240.jpg);
+	border-radius: 25px;
 	
 }
 
@@ -59,13 +60,4 @@ inputs {
 .center2 {
 	position: relative;
 	margin-left: 255px;
-}
-a.selected {
-	bbackground-color:#1F75CC;
-	color:white;
-	z-index:100;
-}
-
-.messagepop {
-	background-color: #FFFFFF
 }
