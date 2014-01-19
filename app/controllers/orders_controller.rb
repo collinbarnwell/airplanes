@@ -23,7 +23,10 @@ class OrdersController < ApplicationController
       render action: 'new'
     end
   end
-  
+
+  def show
+  end
+
   private
 
   def order_params
