@@ -4,4 +4,7 @@
 
 $(document).ready(function(){
   $('input.datepicker').datepicker();
+  $('.close-btn').click( function() {
+	$('.big-box').hide();
+  });
 });
