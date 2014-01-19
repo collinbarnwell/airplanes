@@ -17,14 +17,29 @@ class Order < ActiveRecord::Base
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates_format_of :email, with: EmailRegex
-  validates_numericality_of :max_price, greater_than_or_equal_to: 20.0, less_than_or_equal_to: 2000.0
-  # validates :departure_time, greater_than: Time.now
-  # validates :return_time, greater_than: Time.now
-  # validate that return is after departure
-  # validate destinations can't be the same
-  validates_presence_of :email, :max_price, :start_airport, :end_airport, 
-                        :departure_time_start, :departure_time_end
+  validates_presence_of :email, :start_airport, :end_airport, 
+                        :departure_time_start
+  validate :departure_must_be_in_future, :return_time_must_be_after_departure_time
+           :airports_must_be_different
 
+
+  def departure_must_be_in_future
+    if self.departure_time_start < Date.today
+      errors.add(:departure_time_start, "must be in the future")
+    end
+  end
+
+  def return_time_must_be_after_departure_time
+    if self.return_time_start < self.departure_time_start
+      errors.add(:return_time_start, "must be after departure time")
+    end
+  end
+
+  def airports_must_be_different
+    if self.start_airport == self.end_airport
+      errors.add(:end_airport, "must be different from start airport")
+    end
+  end
 
   def should_buy_now?(current_price)
     if Time.now > self.start_airport - 15.days

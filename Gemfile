@@ -14,12 +14,12 @@ gem 'haml-rails'
 gem 'formtastic', '~> 2.3.0.rc2'
 
 gem 'nokogiri', require: false
+gem 'whenever', require: false
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-script'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

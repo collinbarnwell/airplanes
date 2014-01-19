@@ -2,15 +2,13 @@
 .form.container
   =semantic_form_for(@order) do |f|
     .center1=f.input :email
-    .center2=f.input :max_price, label: 'Max Price ($):'
     %h1 DEPART
     %p Please enter the city from which you wish to depart
     %p 
-      =collection_select :order, :start_airport, @airports, :id, :collection_select_text
+      =f.collection_select :start_airport_id, @airports, :id, :collection_select_text
     %p Please enter the range of dates/times when you would be willing to depart.
 
     %p
-      =collection_select :order, :start_airport, @airports, :id, :collection_select_text
       =f.text_field :departure_time_start, 'data-behavior' => 'datepicker', class: 'datepicker'
 
     %h1 RETURN
@@ -22,7 +20,6 @@
     %p Please enter the range of dates/times when you would like to return.
 
     %p
-      =collection_select :order, :end_airport, @airports, :id, :collection_select_text
       =f.text_field :return_time_start, 'data-behavior' => 'datepicker', class: 'datepicker'
 
       =# bad_airlines

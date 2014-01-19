@@ -6,11 +6,17 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @order = Order.new
+    @airports = Airport.all
     start_date = DateTime.strptime(params[:order][:departure_time_start], '%m/%d/%Y')
     end_date = DateTime.strptime(params[:order][:return_time_start], '%m/%d/%Y')
-    @order = Order.new(order_params)
+    start_airport = params[:order][:start_airport_id].to_i
+    end_airport = params[:order][:end_airport].to_i
+    @order.email = params[:order][:email]
     @order.return_time_start = end_date
     @order.departure_time_start = start_date
+    @order.start_airport_id = start_airport
+    @order.end_airport_id = end_airport
     if @order.save
       redirect_to @order
     else
@@ -25,12 +31,17 @@ class OrdersController < ApplicationController
   end
 
   def update
+    @order = Order.find(params[:id])
+    @airports = Airport.all
     start_date = DateTime.strptime(params[:order][:departure_time_start], '%m/%d/%Y')
     end_date = DateTime.strptime(params[:order][:return_time_start], '%m/%d/%Y')
-    @order = Order.find(params[:id])
-    @order.assign_attributes(order_params)
-    @order.return_time_start = start_date
-    @order.departure_time_start = end_date
+    start_airport = params[:order][:start_airport_id].to_i
+    end_airport = params[:order][:end_airport].to_i
+    @order.email = params[:order][:email]
+    @order.return_time_start = end_date
+    @order.departure_time_start = start_date
+    @order.start_airport_id = start_airport
+    @order.end_airport_id = end_airport
     if @order.save
       redirect_to @order
     else
@@ -45,7 +56,8 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:email, :max_price, :start_airport,
-                                  :end_airport)
+    params.require(:order).permit(:email, :end_airport, 
+                                  :start_airport, :return_time_start, 
+                                  :departure_time_start)
   end
 end
