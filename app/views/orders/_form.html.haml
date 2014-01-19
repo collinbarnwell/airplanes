@@ -25,6 +25,8 @@
       =collection_select :order, :end_airport, @airports, :id, :collection_select_text
       =f.text_field :return_time_start, 'data-behavior' => 'datepicker', class: 'datepicker'
 
+      =# bad_airlines
+
     %p=f.submit class: 'btn btn-large btn-primary'
 
   
