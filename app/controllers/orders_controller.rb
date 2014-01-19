@@ -21,11 +21,17 @@ class OrdersController < ApplicationController
   def edit
     @order = Order.find(params[:id])
     @bad_airlines = BadAirline.all
+    @airports = Airport.all
   end
 
   def update
+    start_date = DateTime.strptime(params[:order][:departure_time_start], '%m/%d/%Y')
+    end_date = DateTime.strptime(params[:order][:return_time_start], '%m/%d/%Y')
     @order = Order.find(params[:id])
-    if @order.update_attributes(order_params)
+    @order.assign_attributes(order_params)
+    @order.return_time_start = start_date
+    @order.departure_time_start = end_date
+    if @order.save
       redirect_to @order
     else
       render action: 'edit'

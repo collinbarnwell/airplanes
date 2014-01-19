@@ -24,4 +24,27 @@ class Order < ActiveRecord::Base
   # validate destinations can't be the same
   validates_presence_of :email, :max_price, :start_airport, :end_airport, 
                         :departure_time_start, :departure_time_end
+
+
+  def should_buy_now?(current_price)
+    if Time.now > self.start_airport - 15.days
+      true
+    elsif Time.now > self.start_airport - 28.days
+      if !self.best_price.nil?
+        return true if current_price < self.best_price
+        return false
+      else
+        return true if Time.now.tuesday?
+      end
+    elsif Time.now > self.start_airport - 56.days
+      if self.best_price.nil?
+        self.update_attributes(best_price: current_price) if Time.now.tuesday?
+        return false
+      else
+        return true if current_price < self.best_price
+      end
+    else
+      return false
+    end
+  end
 end

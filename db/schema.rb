@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118230846) do
+ActiveRecord::Schema.define(version: 20140119033832) do
 
   create_table "airports", force: true do |t|
     t.string   "abbreviation"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20140118230846) do
     t.datetime "updated_at"
     t.integer  "start_airport_id"
     t.integer  "end_airport_id"
+    t.float    "best_price"
+    t.boolean  "active",               default: true
   end
 
 end
