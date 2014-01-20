@@ -1,6 +1,12 @@
 
 .form.container
   =semantic_form_for(@order) do |f|
+    =if @order.errors.any?
+      %h2= pluralize(@order.errors.count, 'error')
+      %ul
+        -@order.errors.full_messages.each do |msg|
+          %li=msg
+          
     .center1=f.input :email
     %h1 DEPART
     %p Please enter the city from which you wish to depart
