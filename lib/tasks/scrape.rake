@@ -6,10 +6,13 @@ namespace :scrape do
     AirportScraper.get_airports
   end
 
-  # wheneverize this
   task prices: :environment do
     Order.where(active: true).find_each(batch_size: 100) do |order|
-      price, provider = KayakScraper.get_price_provider(order)
+      begin
+        price, provider = KayakScraper.get_price_provider(order)
+      rescue
+        break
+      end
       if price.nil?
         OrderMailer.no_flights(order)
         order.update_attributes(active: false)
