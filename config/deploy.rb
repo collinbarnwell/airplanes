@@ -3,7 +3,7 @@ lock '3.1.0'
 
 set :application, 'pearplanes'
 set :repo_url, 'https://github.com/collinbarnwell/airplanes.git'
-set :stages, %W(production)
+set :stages, %w(production)
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
