@@ -9,7 +9,7 @@ p {
 	font-family: Tahoma;
 	font-weight: bold;
 	z-index: 3;
-	}
+}
 
 h1 {
 	text-align: center;
@@ -22,14 +22,12 @@ h1 {
 }
 
 body {
-	background: url(../images/pearground.jpg);
+	background-image:asset-url('pearground.jpg');
 }
 
 div {
 	z-index: 10;
 	color: #87AFC7;
-
-
 }
 
 inputs {
@@ -41,7 +39,7 @@ inputs {
 .form {
 	border:double;
 	border-width: 15px;
-	background: url(../images/stripes.jpg);
+	background-image:asset-url('stripes.jpg');
 	border-radius: 25px;
 	
 }
@@ -70,7 +68,7 @@ inputs {
 	width:100%;
 	height:81%;
 	top: 10%;
-	background:url(../images/cutepaper.jpg);
+	background-image:asset_url('cutepaper.jpg');
 	border:dotted;
 	border-width: 10px;
 	border-radius: 30px;
