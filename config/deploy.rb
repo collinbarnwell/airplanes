@@ -11,7 +11,6 @@ set :repo_url, 'https://github.com/collinbarnwell/airplanes.git'
 set :deploy_to, '~/airplanes'
 set :user, 'ubuntu'
 role :web, '54.200.83.177'
-ssh_options[:keys] = %w(~/.ssh/airplanes.pem)
 
 # Default value for :scm is :git
 # set :scm, :git
